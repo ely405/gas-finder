@@ -6,7 +6,6 @@ const getJSON = (url, cb) => {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
-    console.log(xhr);
     if (xhr.status !== 200) {
       return cb(new Error('Error loading JSON from ' + url + '(' + xhr.status + ')'));
     }

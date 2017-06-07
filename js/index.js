@@ -3,7 +3,6 @@
 const render = (root) => {
   root.empty();
   const wrapper = $('<div/>',{'class':'wrapper'});
-  console.log(state.stations);
   wrapper.append(Header(_ => render(root)));
   root.append(wrapper);
 }
@@ -29,5 +28,4 @@ $( _ => {
 const reRender = (listGasStation)=>{
   listGasStation.empty();
   createGasStationList(stationDetail, ()=>{reRender(listGasStation)});
-  console.log(state.stations);
 }

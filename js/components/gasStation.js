@@ -1,16 +1,40 @@
 'use strict';
-const createGasStationList = (update)=>{
-  console.log('create gas station');
-  //$(this).text($(this).text().substr(0, 25));
-  let rowStationItem = $('<div/>',{'class':'row card section'});
+const createGasStationDetail= (stationDetail)=>{
+  console.log('trae res');
   let colStationDetail = $('<div/>',{'class':'col s10'});
-  let detailParagraph = $('<p/>').html('detalle del grifo');
+  let stationName = $('<p/>').html(stationDetail.name);
+  console.log(stationName);
+  let stationAddress = $('<p/>').html(stationDetail.address);
+  let stationDistrict = $('<p/>').html(stationDetail.district);
+  colStationDetail.append(stationName, stationAddress, stationDistrict);
+  console.log(colStationDetail);
+  return colStationDetail;
+}
+const createGasStationList = (stationDetail)=>{
+  console.log('create gas station');
+  let rowStationItem = $('<div/>',{'class':'row card section'});
   let colStationMap = $('<div/>',{'class':'col s2'});
   let linkToMap = $('<a/>',{'href':'#'});
   let iconMap = $('<i/>',{'class':'fa fa-map'});
 
-  colStationDetail.append(detailParagraph);
   colStationMap.append(linkToMap.append(iconMap));
-  rowStationItem.append(colStationDetail, colStationMap);
+  rowStationItem.append(createGasStationDetail(stationDetail), colStationMap);
+  console.log(createGasStationDetail);
   return rowStationItem;
+}
+
+
+const createSearchInput= ()=>{
+  const rowSearch = $('<div/>',{'class':'row'});
+  const containsSearch = $('<div/>',{'class':'input-field col12'});
+  const searchIcon = $('<i/>', {'class':'fa fa-search material-icons prefix'})
+  const searchInput = $('<input/>',{'id':'search-input', 'type':'search', 'class':'col s11', 'placeholder':'Ingresa nombrede distrito'});
+
+  rowSearch.append(containsSearch.append(searchIcon, searchInput));
+
+  searchInput.keyup((elem)=>{
+    filterByDistrict(state.stations, searchInput);
+    console.log('tecla');
+  });
+  return rowSearch;
 }

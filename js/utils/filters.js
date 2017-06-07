@@ -1,20 +1,14 @@
 'use strict';
-let distr;
 const filterByDistrict = (stations,query) => {
-  const gasFinderFliter = state.stations.map((e)=>{
-    const districtLetter = e.district.split('');
-    districtLetter.filter(finderFilter);
-    if(e.district == distr){
+  stations.filter((e)=>{
+    if(e.district.toLowerCase().indexOf(query.val().trim().toLowerCase())!=-1 && query.val().trim() != ''){
+      console.log(e.district);
+      console.log('encontre letra');
       console.log(e);
+      // return createGasStationList(e);
+      console.log(stations);
+      let divRoot = $('.root');
+      return divRoot.append(createGasStationList(e));
     }
-  });
-}
-
-const finderFilter = (letter, i, array, query)=>{
-  query = $('#search-input').val();
-  if(query == letter || query.toUpperCase() == letter){
-    console.log('encon ' + array + ' en el indice ' + i);
-    distr = array.join('');
-    return distr
-  }
+  })
 }

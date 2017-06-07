@@ -10,14 +10,12 @@ const Header = (update) => {
   return header;
 }
 
-const createSearchInput= ()=>{
-  const rowSearch = $('<div/>',{'class':'row'});
-  const containsSearch = $('<div/>',{'class':'input-field col12'});
-  const searchIcon = $('<i/>', {'class':'fa fa-search material-icons prefix'})
-  const searchInput = $('<input/>',{'id':'search-input', 'type':'search', 'class':'col s11', 'placeholder':'Ingresa nombrede distrito'});
-
-  rowSearch.append(containsSearch.append(searchIcon, searchInput));
-
-  searchInput.on('keyup', filterByDistrict);
-  return rowSearch;
-}
+// const createSearchInput= ()=>{
+//   const rowSearch = $('<div/>',{'class':'row'});
+//   const containsSearch = $('<div/>',{'class':'input-field col12'});
+//   const searchIcon = $('<i/>', {'class':'fa fa-search material-icons prefix'})
+//   const searchInput = $('<input/>',{'id':'search-input', 'type':'search', 'class':'col s11', 'placeholder':'Ingresa nombrede distrito'});
+//
+//   rowSearch.append(containsSearch.append(searchIcon, searchInput));
+//   return rowSearch;
+// }
